@@ -1,5 +1,6 @@
 (function () {
-	var app = angular.module('photoFeed');
+	/* global angular */
+	var app = angular.module('flickrEater');
 	
 	app.factory('PhotoFeedService', function ($http, appConfig) {
 		var baseUrl = appConfig.flickrApi.baseUrl;

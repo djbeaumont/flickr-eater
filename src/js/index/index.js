@@ -1,6 +1,6 @@
 (function () {
 	/* global angular */
-	var app = angular.module('photoFeed');
+	var app = angular.module('flickrEater');
 	
 	app.controller('PhotoFeedCtrl', function ($scope, $http, appConfig, PhotoFeedService) {
 		var tags = [ 'lolcat' ];
