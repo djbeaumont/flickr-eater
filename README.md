@@ -7,10 +7,10 @@ and displays them in a single-page-application written using AngularJS.
 
 ### Must Haves
 
-* Setup git repository
+* ~~Setup git repository~~
+* ~~Find hosting~~
 * Build scripts
 * Jasmine tests
-* Find hosting
 * Limit size of title
 * Limit size of image
 * Show description
