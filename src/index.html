@@ -29,6 +29,12 @@
                         <a href="{{ ::photo.author.homepage }}">
                             {{ ::photo.author.name }}
                         </a>
+                        <span ng-if="photo.tags">
+                            <br /> Tags:
+                            <span ng-repeat="tag in photo.tags">
+                                <a href="{{ ::tag.pageUrl }}">{{ ::tag.name }}</a><span ng-if="!$last">,</span>
+                            </span>
+                        </span>
                     </h3>
                 </div>
             </div>

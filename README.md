@@ -15,13 +15,14 @@ This project is available on my [github page](https://djbeaumont.github.io/flick
 * ~~Find hosting~~
 * Build scripts
 * Jasmine tests
-* Limit size of title
-* Limit size of image
-* Show description
+* ~~Show description~~ - NOT REQUIRED - it doesn't contain anything more than 'X posted a photo'
 * ~~Link to image from title~~
 * ~~Show and link to author~~
-* Show tags
+* ~~Show tags~~
 * Handle API failures gracefully
+* Limit size of title
+* Limit size of image
+* Limit size of tag lists
 
 ### Should Haves
 

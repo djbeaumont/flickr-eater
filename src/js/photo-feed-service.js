@@ -5,6 +5,7 @@
     app.factory('PhotoFeedService', function (_, $http, appConfig) {
         var baseUrl = appConfig.flickr.apiUrl;
         var authorUrl = appConfig.flickr.authorUrl;
+        var tagUrl = appConfig.flickr.tagUrl;
 
         /**
          * Flickr gives back author names as a string like: "nobody@flickr.com (friendlyName)"
@@ -54,10 +55,20 @@
         };
 
         /**
+         * Augment a tag with a link to the associated photos on Flickr.
+         */
+        var mapTag = function (name) {
+            return {
+                name: name,
+                pageUrl: tagUrl.replace("{tag}", name)
+            };
+        };
+
+        /**
          * Convert an item from Flickr's API into an expected format.
          */
         var mapFlickrItem = function (item) {
-            var tags = (item.tags || "").split(" ");
+            var tags = _.map((item.tags || "").split(" "), mapTag);
 
             return {
                 title: formatTitle(item.title),
