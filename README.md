@@ -14,13 +14,14 @@ and displays them in a single-page-application written using AngularJS.
 * Limit size of title
 * Limit size of image
 * Show description
-* Link to image from title
-* Show and link to author
+* ~~Link to image from title~~
+* ~~Show and link to author~~
 * Show tags
 * Handle API failures gracefully
 
 ### Should Haves
 
+* Refactor into directives
 * Silhouette image for loading pictures
 * Spinner animation for loading pictures
 * Infinite scroll

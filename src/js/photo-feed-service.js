@@ -4,23 +4,79 @@
 
     app.factory('PhotoFeedService', function (_, $http, appConfig) {
         var baseUrl = appConfig.flickr.apiUrl;
+        var authorUrl = appConfig.flickr.authorUrl;
 
+        /**
+         * Flickr gives back author names as a string like: "nobody@flickr.com (friendlyName)"
+         * Presumably, more information like real contact addresses is given out if you have
+         * an API key. For now we'll look for something email-address-like and retrieve the
+         * friendly name.
+         */
+        var formatAuthorName = function (originalName) {
+            var author = originalName;
+
+            var authorRegex = /^.*@.*\s\((.*)\)$/g;
+            var matches = authorRegex.exec(originalName);
+
+            if (matches == null || matches.length != 2) {
+                throw new Error("Could not find author name in: " + originalName)
+            } else {
+                author = matches[1];
+            }
+
+            // TODO - shorten the author if necessary - or ellipsise in a directive?
+
+            return author;
+        };
+
+        /**
+         * Apply some pretend business rules to photo titles.
+         */
+        var formatTitle = function (originalTitle) {
+            var title = originalTitle;
+
+            // Some authors like to put their titles in quotes and this
+            // looks a bit weird in context with other photos.
+            if (title.startsWith('"') && title.endsWith('"')) {
+                title = title.substring(1).substring(0, title.length - 2);
+            }
+
+            // TODO - shorten the title if necessary - or ellipsise in a directive?
+
+            return title;
+        };
+
+        /**
+         * Generate a fully qualified link based on the photo author's Flickr ID.
+         */
+        var generateAuthorLink = function (authorId) {
+            return authorUrl.replace("{id}", authorId);
+        };
+
+        /**
+         * Convert an item from Flickr's API into an expected format.
+         */
         var mapFlickrItem = function (item) {
-            var tags = (item.tags || "").split(' ');
-            var authorHomepage = appConfig.flickr.authorUrl.replace("{id}", item.author_id);
+            var tags = (item.tags || "").split(" ");
 
             return {
-                title: item.title,
+                title: formatTitle(item.title),
                 thumbnailUrl: item.media.m,
+                pageUrl: item.link,
                 author: {
-                    name: item.author,
-                    homepage: authorHomepage
+                    name: formatAuthorName(item.author),
+                    homepage: generateAuthorLink(item.author_id)
                 },
                 tags: tags
             };
         };
 
         return {
+            /**
+             * Retrieve photos from Flickr's public API.
+             * @param tags Which tags to search Flickr for images.
+             * @returns A promise that is resolved when the underlying HTTP response returns.
+             */
             getPhotos: function (tags) {
                 var params = {
                     "jsoncallback": "JSON_CALLBACK",

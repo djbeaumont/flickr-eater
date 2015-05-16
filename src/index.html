@@ -15,11 +15,21 @@
         
         <div class="container-fluid">
             <div class="panel panel-default" style="display: inline-block; margin-right: 10px" ng-repeat="photo in photos">
-                <div class="panel-heading">
-                    <h3 class="panel-title">{{ ::photo.title }}</h3>
-                </div>
                 <div class="panel-body">
-                    <img ng-src="{{ ::photo.thumbnailUrl }}" />
+                    <a href="{{ ::photo.pageUrl }}">
+                        <img ng-src="{{ ::photo.thumbnailUrl }}" />
+                    </a>
+                </div>
+                <div class="panel-footer">
+                    <h3 class="panel-title">
+                        <a href="{{ ::photo.pageUrl }}">
+                            {{ ::photo.title }}
+                        </a>
+                        <br /> by
+                        <a href="{{ ::photo.author.homepage }}">
+                            {{ ::photo.author.name }}
+                        </a>
+                    </h3>
                 </div>
             </div>
         </div>
