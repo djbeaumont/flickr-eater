@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Flickr Eater</title>
+        <meta name="description" content="Displays images from public Flickr feed">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+            
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+
+        <script type="application/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+        <script type="application/javascript" src="bower_components/angular/angular.js"></script>
+        
+        <script type="application/javascript">
+            var app = angular.module('photoFeed', []);
+            app.controller('PhotoFeedCtrl', function ($scope, $http) {
+                var tags = [ 'lolcat' ];
+                var url = 'https://api.flickr.com/services/feeds/photos_public.gne';
+                var params = {
+                    "format": "json",
+                    "jsoncallback": "JSON_CALLBACK",
+                    "tags": tags.join(),
+                    "media": "photos",
+                    "orientation": "square"
+                }
+                $http.jsonp(url, { params: params }).success(function (data) {
+                    $scope.items = data.items;
+                });
+            });
+        </script>
+    </head>
+    <body ng-app="photoFeed" ng-controller="PhotoFeedCtrl">
+        
+        <div class="container-fluid">
+            <div class="panel panel-default" style="display: inline-block; margin-right: 10px" ng-repeat="item in items">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{ ::item.title }}</h3>
+                </div>
+                <div class="panel-body">
+                    <img ng-src="{{ ::item.media.m }}" />
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
