@@ -3,6 +3,10 @@
 This demo project retrieves photos from [Flickr's JSON API](https://api.flickr.com/services/feeds/photos_public.gne?format=json)
 and displays them in a single-page-application written using AngularJS.
 
+## Demo
+
+This project is available on my [github page](https://djbeaumont.github.io/flickr-eater/).
+
 ## TODO
 
 ### Must Haves
