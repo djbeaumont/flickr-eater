@@ -15,10 +15,10 @@
         
         <div class="container">
             <div ng-if="!ctrl.loaded" class="loading">
-                <h2>Loading!</h2>
+                <h2>Loading Photos!</h2>
             </div>
 
-            <div ng-if="!ctrl.success && ctrl.loaded" class="error">
+            <div ng-if="!ctrl.success && ctrl.loaded" ng-cloak class="error">
                 <h2>Error!</h2>
                 <p>There was an error retrieving photos from Flickr.</p>
             </div>
