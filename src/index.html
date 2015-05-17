@@ -14,36 +14,14 @@
     <body ng-app="flickrEater" ng-controller="PhotoFeedCtrl">
         
         <div class="container-fluid">
-            <div class="panel panel-default" style="display: inline-block; margin-right: 10px" ng-repeat="photo in photos">
-                <div class="panel-body">
-                    <a href="{{ ::photo.pageUrl }}">
-                        <img ng-src="{{ ::photo.thumbnailUrl }}" />
-                    </a>
-                </div>
-                <div class="panel-footer">
-                    <h3 class="panel-title">
-                        <a href="{{ ::photo.pageUrl }}">
-                            {{ ::photo.title }}
-                        </a>
-                        <br /> by
-                        <a href="{{ ::photo.author.homepage }}">
-                            {{ ::photo.author.name }}
-                        </a>
-                        <span ng-if="photo.tags">
-                            <br /> Tags:
-                            <span ng-repeat="tag in photo.tags">
-                                <a href="{{ ::tag.pageUrl }}">{{ ::tag.name }}</a><span ng-if="!$last">,</span>
-                            </span>
-                        </span>
-                    </h3>
-                </div>
-            </div>
+            <photo-panel photo="photo" ng-repeat="photo in photos"></photo-panel>
         </div>
         
         <script type="application/javascript" src="bower_components/lodash/lodash.min.js"></script>
         <script type="application/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
         <script type="application/javascript" src="bower_components/angular/angular.js"></script>
         <script type="application/javascript" src="js/app.js"></script>
+        <script type="application/javascript" src="js/directives/photo-panel/photo-panel.js"></script>
         <script type="application/javascript" src="js/photo-feed-service.js"></script>
         <script type="application/javascript" src="js/index/index.js"></script>
     </body>
