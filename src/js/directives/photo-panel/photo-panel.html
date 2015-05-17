@@ -1,24 +1,27 @@
-<div class="panel panel-default" style="display: inline-block; margin-right: 10px">
-    <div class="panel-body">
+<div class="photo-panel">
+    <div class="photo-image">
         <a href="{{ ::photo.pageUrl }}">
             <img ng-src="{{ ::photo.thumbnailUrl }}" />
         </a>
     </div>
-    <div class="panel-footer">
-        <h3 class="panel-title">
-            <a href="{{ ::photo.pageUrl }}">
-                {{ ::photo.title }}
-            </a>
-            <br /> by
-            <a href="{{ ::photo.author.homepage }}">
-                {{ ::photo.author.name }}
-            </a>
-            <span ng-if="photo.tags">
-                <br /> Tags:
-                <span ng-repeat="tag in photo.tags">
-                    <a href="{{ ::tag.pageUrl }}">{{ ::tag.name }}</a><span ng-if="!$last">,</span>
-                </span>
-            </span>
-        </h3>
-    </div>
+
+    <h3 class="photo-details">
+        <a href="{{ ::photo.pageUrl }}" title="{{ ::photo.title }}">
+            {{ ::photo.title }}
+        </a>
+    </h3>
+
+    <p class="photo-details">
+        by
+        <a href="{{ ::photo.author.homepage }}">
+            {{ ::photo.author.name }}
+        </a>
+    </p>
+
+    <p class="photo-details">
+        Tags:
+        <span ng-if="photo.tags" ng-repeat="tag in photo.tags">
+            <a href="{{ ::tag.pageUrl }}">{{ ::tag.name }}</a><span ng-if="!$last">,</span>
+        </span>
+    </p>
 </div>

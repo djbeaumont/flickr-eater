@@ -31,6 +31,7 @@ This project is available on my [github page](https://djbeaumont.github.io/flick
 * Spinner animation for loading pictures
 * Infinite scroll
 * Tag search
+* Fill width with a picture on mobiles
 
 ### Nice to Haves
 

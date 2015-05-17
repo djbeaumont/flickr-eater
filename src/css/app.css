@@ -1,0 +1,41 @@
+html, body {
+    background-color: #EEE;
+}
+
+.photo-panel {
+    background: #FFF;
+    border: thin solid #222;
+    display: inline-block;
+    padding: 1rem;
+    margin: 0 1em 1em 0;
+    width: 18em;
+}
+
+.photo-image {
+    display: inline-block;
+    height: 12em;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+}
+
+.photo-image a {
+    line-height: 11.5em;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.photo-details:first-child {
+    margin-top: 1em;
+}
+
+.photo-details {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+p.photo-details {
+    margin: 0;
+}

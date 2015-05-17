@@ -6,6 +6,7 @@
         var baseUrl = appConfig.flickr.apiUrl;
         var authorUrl = appConfig.flickr.authorUrl;
         var tagUrl = appConfig.flickr.tagUrl;
+        var missingTitle = appConfig.ui.missingTitle;
 
         /**
          * Flickr gives back author names as a string like: "nobody@flickr.com (friendlyName)"
@@ -25,8 +26,6 @@
                 author = matches[1];
             }
 
-            // TODO - shorten the author if necessary - or ellipsise in a directive?
-
             return author;
         };
 
@@ -38,11 +37,13 @@
 
             // Some authors like to put their titles in quotes and this
             // looks a bit weird in context with other photos.
-            if (title.startsWith('"') && title.endsWith('"')) {
+            if (title.substring(0, 1) === '"' && title.substring(title.length - 1) === '"') {
                 title = title.substring(1).substring(0, title.length - 2);
             }
 
-            // TODO - shorten the title if necessary - or ellipsise in a directive?
+            if (title.trim() === '') {
+                title = missingTitle;
+            }
 
             return title;
         };
