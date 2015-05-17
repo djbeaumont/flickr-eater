@@ -28,7 +28,7 @@ This project is available on my [github page](https://djbeaumont.github.io/flick
 
 * ~~Refactor into directives~~
 * ~~Fill width with a picture on mobiles~~
-* Silhouette image for loading pictures
+* ~~Silhouette image for loading pictures~~
 * Infinite scroll
 * Tag search
 
