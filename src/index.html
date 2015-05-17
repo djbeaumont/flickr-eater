@@ -11,10 +11,19 @@
             
         <link rel="stylesheet" href="css/app.css" />
     </head>
-    <body ng-app="flickrEater" ng-controller="PhotoFeedCtrl">
+    <body ng-app="flickrEater" ng-controller="PhotoFeedCtrl as ctrl">
         
         <div class="container">
-            <photo-panel photo="photo" ng-repeat="photo in photos"></photo-panel>
+            <div ng-if="!ctrl.loaded" class="loading">
+                <h2>Loading!</h2>
+            </div>
+
+            <div ng-if="!ctrl.success && ctrl.loaded" class="error">
+                <h2>Error!</h2>
+                <p>There was an error retrieving photos from Flickr.</p>
+            </div>
+
+            <photo-panel photo="photo" ng-if="ctrl.success" ng-repeat="photo in ctrl.photos"></photo-panel>
         </div>
         
         <script type="application/javascript" src="bower_components/lodash/lodash.min.js"></script>

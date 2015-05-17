@@ -13,29 +13,28 @@ This project is available on my [github page](https://djbeaumont.github.io/flick
 
 * ~~Setup git repository~~
 * ~~Find hosting~~
-* Build scripts
-* Jasmine tests
-* ~~Show description~~ - NOT REQUIRED - it doesn't contain anything more than 'X posted a photo'
 * ~~Link to image from title~~
 * ~~Show and link to author~~
 * ~~Show tags~~
-* Handle API failures gracefully
-* Limit size of title
-* Limit size of image
-* Limit size of tag lists
+* ~~Limit size of title~~
+* ~~Limit size of image~~
+* ~~Limit size of tag lists~~
+* ~~Handle API failures gracefully~~
+* ~~Show description~~ - NOT REQUIRED - it doesn't contain anything more than 'X posted a photo'
+* Use grunt or gulp to ngAnnotate, mangle scripts
+* Jasmine tests
 
 ### Should Haves
 
-* Refactor into directives
+* ~~Refactor into directives~~
+* ~~Fill width with a picture on mobiles~~
 * Silhouette image for loading pictures
-* Spinner animation for loading pictures
 * Infinite scroll
 * Tag search
-* Fill width with a picture on mobiles
 
 ### Nice to Haves
 
-* Use full screen api to show image (requires API key)
+* Use full screen api to show full image (requires API key)
 
 ## License
 

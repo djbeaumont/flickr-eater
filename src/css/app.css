@@ -87,12 +87,6 @@ p {
     width: 15em;
 }
 
-@media (max-width: 400px) {
-    .photo-panel {
-        width: 100%;
-    }
-}
-
 .photo-image {
     display: inline-block;
     height: 12em;
@@ -120,4 +114,18 @@ p {
 
 p.photo-details {
     margin: 0;
+}
+
+.error, .loading {
+    text-align: center;
+}
+
+.error h2, .loading h2 {
+    font-size: 1.5em;
+}
+
+@media (max-width: 400px) {
+    .photo-panel {
+        width: 100%;
+    }
 }
